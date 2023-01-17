@@ -1,0 +1,86 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+
+<canvas id="stackedBarChart"></canvas>
+
+<script>
+    var bookData = {
+        "book_session": {
+            // your book data
+        }
+    };
+
+    var sectionData = {
+        "sections": {
+            // your section data
+        }
+    };
+
+    var books = [];
+    var readCount = {};
+    var feedbackValue = {};
+    for (var book in bookData.book_session) {
+        books.push(book);
+        readCount[book] = bookData.book_session[book]["read_count"];
+        feedbackValue[book] = bookData.book_session[book]["last_feedback_value"];
+    }
+
+    var sections = [];
+    var timeTaken = {};
+    var correctAnswers = {};
+    var totalAnswers = {};
+    for (var section in sectionData.sections) {
+        sections.push(section);
+        timeTaken[section] = 0;
+        correctAnswers[section] = 0;
+        totalAnswers[section] = 0;
+        for (var task in sectionData.sections[section]) {
+            timeTaken[section] += sectionData.sections[section][task]["default"]["time_taken"];
+            if (sectionData.sections[section][task]["default"]["answered"]) {
+                totalAnswers[section]++;
+                if (sectionData.sections[section][task]["default"]["correct"]) {
+                    correctAnswers[section]++;
+                }
+            }
+        }
+    }
+
+    var stackedBarCtx = document.getElementById("stackedBarChart").getContext("2d");
+    var stackedBarChart = new Chart(stackedBarCtx, {
+        type: "bar",
+        data: {
+            labels: books.concat(sections),
+            datasets: [{
+                label: "Read Count",
+                data: Object.values(readCount),
+                backgroundColor: "rgba(255, 99, 132, 0.2)",
+                borderColor: "rgba(255, 99, 132, 1)",
+                borderWidth: 1
+            }, {
+                label: "Feedback Value",
+                data: Object.values(feedbackValue),
+                backgroundColor: "rgba(99, 255, 132, 0.2)",
+                borderColor: "rgba(99, 255, 132, 1)",
+                borderWidth: 1
+            }, {
+                label: "Correct (%)",
+                data: Object.keys(totalAnswers).map(function (section) {
+                    return (correctAnswers[section] / totalAnswers[section]) * 100;
+                }),
+                backgroundColor: "rgba(99, 255, 255, 0.2)",
+                borderColor: "rgba(99, 255, 255, 1)",
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: [{
+                    stacked: true,
+                    beginAtZero: true,
+                    max: 100
+                }]
+            }
+        }
+    });
+</script>
+
+<!-- This code will create a stacked bar chart with 3 datasets. The first dataset is the read count of each book, the second dataset is the feedback value of each book, and the third dataset is the percentage of correct answers for each section. The y-axis will be scaled to a maximum of 100 and the stacked option is enabled so the three datasets will be stacked on top of each other. -->

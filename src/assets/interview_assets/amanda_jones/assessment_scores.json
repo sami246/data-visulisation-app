@@ -42,15 +42,17 @@
       "average_time_correct": 1503.625
     }
   },
-  "sounding_out_and_blending": {
-    "blending": {
+  "blending": {
+    "default": {
       "score": 6,
       "score_decimal": 1.0,
       "average_time_total": 643.8333333333334,
       "max_possible_score": 6,
       "average_time_correct": 643.8333333333334
-    },
-    "sounding_out": {
+    }
+  },
+  "sounding_out": {
+    "default": {
       "score": 6,
       "score_decimal": 1.0,
       "average_time_total": 6239.666666666667,

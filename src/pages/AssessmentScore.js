@@ -1,13 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { allStudentData } from "../data/allStudentData";
-import Chart from "chart.js/auto";
 // import { AllAssessmentScores } from "../assets/interview_assets/AllAssessmentScores";
+import '../pages/Pages.css'
+import BarChartHorziontal from "../components/BarChartHorziontal";
+import RadarChart from "../components/RadarChart";
+import { DataContext } from '../context/DataContext';
 
 function AssessmentScore() {
   const { student } = useParams();
+  const {isChild, color,lightColor} = useContext(DataContext);
+  
   const [name, setName] = useState(null);
   const [studentInfo, setStudentInfo] = useState(null);
+
+
+
   // const [learningDataJson, setLearningDataJson] = useState(null);
   // const [assessmentScoreJson, setAssessmentScoreJson] = useState(null);
   // const [assessmentSubmission, setAssessmentSubmission] = useState(null);
@@ -22,81 +30,28 @@ function AssessmentScore() {
     });
   }, []);
 
-  (async function () {
-    const labels = [];
-    const backgroundColor = [];
-    const data1 = [];
-
-    allStudentData.forEach((element) => {
-      labels.push(element.first_name + " " + element.last_name);
-      data1.push(element.assessment_scores.total.score);
-      // Find student looking at
-      if (element.first_name + "_" + element.last_name === student) {
-        backgroundColor.push("rgba(137, 196, 284, 1)");
-      } else {
-        backgroundColor.push("rgba(137, 196, 244, 0.3)");
-      }
-    });
-
-    console.log({ labels });
-    const scores_data = {
-      labels: labels,
-      datasets: [
-        {
-          axis: "y",
-          label: "Scores from the Assessment",
-          data: data1,
-          fill: false,
-          backgroundColor: backgroundColor,
-          borderWidth: 1,
-        },
-      ],
-    };
-
-    const scores_config = {
-      type: "bar",
-      data: scores_data,
-      options: {
-        indexAxis: "y",
-      },
-    };
-
-    new Chart(document.getElementById("scores"), scores_config);
-  })();
-
   return (
     <div>
       <h1 className="studentName">{name} - Assessment Score</h1>
-      <div>
+      <h2>{isChild ? "Child View" : "Gaurdian/Teacher View"}</h2>
+      <div className="boxContainer">
 
-        <div className="boxContainer">
-          <h3>
+        <div className="box">
+          <h3 className="boxTitle">
+            {name}
+            <br></br>
             Total Score: {studentInfo?.assessment_scores.total.score} /{" "}
             {studentInfo?.assessment_scores.total.max_possible_score}
           </h3>
-          <div>
-            <canvas
-              width="1250vw"
-              height="600"
-              className="center-canvas"
-              id="scores"
-            ></canvas>
-          </div>
+          
+          <BarChartHorziontal student={student} allStudentData={allStudentData}/>
         </div>
 
-        <div className="boxContainer">
-          <h3>
-            Total Score: {studentInfo?.assessment_scores.total.score} /{" "}
-            {studentInfo?.assessment_scores.total.max_possible_score}
-          </h3>
-          <div>
-            <canvas
-              width="1250vw"
-              height="600"
-              className="center-canvas"
-              id="scores"
-            ></canvas>
-          </div>
+        <div className="box">
+          <h4 className="boxTitle">
+            Percentage Score Achieved in Each Assessment:
+          </h4>
+          <RadarChart student={student} allStudentData={allStudentData}/>
         </div>
       </div>
     </div>
@@ -104,3 +59,4 @@ function AssessmentScore() {
 }
 
 export default AssessmentScore;
+

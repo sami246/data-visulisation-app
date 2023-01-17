@@ -38,20 +38,22 @@
       "average_time_correct": 1080.7916666666667
     }
   },
-  "sounding_out_and_blending": {
-    "blending": {
-      "score": 6,
-      "score_decimal": 1.0,
-      "average_time_total": 402.0,
-      "max_possible_score": 6,
-      "average_time_correct": 402.0
-    },
-    "sounding_out": {
+  "sounding_out": {
+    "default": {
       "score": 6,
       "score_decimal": 1.0,
       "average_time_total": 3253.0,
       "max_possible_score": 6,
       "average_time_correct": 3253.0
+    }
+  },
+  "blending": {
+    "default": {
+      "score": 6,
+      "score_decimal": 1.0,
+      "average_time_total": 402.0,
+      "max_possible_score": 6,
+      "average_time_correct": 402.0
     }
   }
 }

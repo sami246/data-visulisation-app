@@ -38,6 +38,7 @@ li a:hover {
   align-items: center;
   align-content: center;
   justify-content: center;
+  
 }
 
 * {
@@ -52,12 +53,12 @@ Link {
   text-transform: capitalize;
 }
 
-.center-canvas {
-  display: block;
-  margin: auto;
+.App {
+  background-color: #43aaff;
+  min-height: 100vh;
 }
 
-.boxContainer { 
-  padding: 20;
-  margin: 20;
+h1 {
+  color: white;
+  font-size: 3rem;
 }

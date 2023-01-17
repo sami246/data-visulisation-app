@@ -1,12 +1,16 @@
-import React, { Dimensions } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { allStudentData } from "../data/allStudentData";
+import { DataContext } from '../context/DataContext';
 
 function Students() {
-  console.log(Dimensions);
+  const {isChild, setIsChild} = useContext(DataContext);
+
   return (
     <div>
       <h1>Students</h1>
+      <button class="button" style={{"background-color" : isChild ? "#ffd51c" : '#ecd779'}} onClick={() => {setIsChild(true)}}>Is Child</button>
+      <button class="button" style={{"background-color" : !isChild ? "#ff9102" : '#f7a840'}} onClick={() => {setIsChild(false)}}>Is Guardian/Teacher</button>
       {allStudentData.map((item, index) => (
         <div key={`${item.first_name} ${item.last_name} EachStudent`}>
           <h2 className="studentName">

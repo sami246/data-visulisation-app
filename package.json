@@ -4,17 +4,18 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "@cubejs-client/core": "^0.31.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "chart.js": "^4.0.0",
     "d3": "^7.8.1",
+    "randomcolor": "^0.6.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.6.2",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4",
-    "@cubejs-client/core": "^0.31.0",
-    "chart.js": "^4.0.0"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "dev": "parcel src/index.html",
