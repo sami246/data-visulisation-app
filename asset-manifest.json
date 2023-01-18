@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/data-visulisation-app/static/css/main.7e9993f3.css",
+    "main.js": "/data-visulisation-app/static/js/main.62fac881.js",
+    "static/js/787.6f560000.chunk.js": "/data-visulisation-app/static/js/787.6f560000.chunk.js",
+    "index.html": "/data-visulisation-app/index.html",
+    "main.7e9993f3.css.map": "/data-visulisation-app/static/css/main.7e9993f3.css.map",
+    "main.62fac881.js.map": "/data-visulisation-app/static/js/main.62fac881.js.map",
+    "787.6f560000.chunk.js.map": "/data-visulisation-app/static/js/787.6f560000.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7e9993f3.css",
+    "static/js/main.62fac881.js"
+  ]
+}
