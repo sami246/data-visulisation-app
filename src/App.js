@@ -14,7 +14,7 @@ function App() {
           <NavBar />
           <div className="container">
             <Routes>
-              <Route path="/" element={<Students />} />
+              <Route path="" element={<Students />} />
               <Route path="students" element={<Students />} />
               <Route
                 path=":student/data"

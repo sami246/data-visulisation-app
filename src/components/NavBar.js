@@ -10,13 +10,8 @@ function NavBar() {
     <div className="NavBar">
         <ul className="Nav">
         <li>
-            <Link className="NavLink" to={"assessment_data"}>
-            Assessment Data
-            </Link>
-        </li>
-        <li>
             <Link className="NavLink" to={"students"}>
-            Students
+            Home
             </Link>
         </li>
         { isChild != null &&
