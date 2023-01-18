@@ -3,7 +3,7 @@ import Chart from "chart.js/auto";
 import { DataContext } from '../context/DataContext';
 // import randomColor from "randomcolor";
 
-function RadarChart({student, allStudentData}) {
+function PercentageAssessmentChart({student, allStudentData}) {
     const {isChild, color, lightColor} = useContext(DataContext);
 
     (async function () {
@@ -18,15 +18,11 @@ function RadarChart({student, allStudentData}) {
             for (var key in temp) {
                 
                 if(key !== "total"){
-                    console.log("-----", key + " -> " + temp[key]);
                     // Only want to get labels once
                     if(element1.first_name + "_" + element1.last_name === student){
                         labels_radar.push(key)
                     }
-
-                    for (var key2 in temp[key].default){
-                        console.log({key2})
-                        
+                    for (var key2 in temp[key].default){                       
                         //Value
                         if(key2 === "score_decimal"){
                             tempdata.push(temp[key].default[key2]*100)
@@ -37,7 +33,6 @@ function RadarChart({student, allStudentData}) {
                 }
              
             }
-            console.log({tempdata})
             datasets.push({
                 label: element1.first_name + " " + element1.last_name,
                 data: tempdata,
@@ -53,8 +48,6 @@ function RadarChart({student, allStudentData}) {
 
 
     });
-
-    console.log(datasets)
 
     const radar_data = {
         labels: labels_radar,
@@ -86,4 +79,4 @@ function RadarChart({student, allStudentData}) {
   )
 }
 
-export default RadarChart
+export default PercentageAssessmentChart

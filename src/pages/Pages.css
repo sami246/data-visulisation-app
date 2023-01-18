@@ -5,15 +5,17 @@
     font-size: 30px;
     text-align: center;
     display: grid;
-    grid-template-rows: 20% 80%;
+    grid-template-rows: 120px auto;
 }
 
 .boxContainer {
     display: grid;
     grid-template-columns: 33.2% 33.2% 33.2%;
+    
     padding: 10px;
     column-gap: 10px;
     row-gap: 20px;
+    text-align: center;
   }
 
   .graphBox {
@@ -22,9 +24,15 @@
 
   .boxTitle {
     align-self: center;
-    font-size: larger;
-    padding: auto;
+    font-size: x-large;
+    padding: 10px;
     text-transform: capitalize;
+    background-color: cornflowerblue;
+    padding-bottom: 5px;
+    border-radius: 20px;
+    box-shadow: black;
+    color: aliceblue;
+    text-align: center;
   }
 
   .button {
@@ -44,6 +52,7 @@
   }
 
   .button:hover {background-color: #ffd51c;}
+
 
 
 

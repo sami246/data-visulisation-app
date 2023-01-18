@@ -23,7 +23,7 @@ function NavBar() {
         <li>
             <p style={{"fontSize" : 15, "color" : isChild ? '#ffd51c' : '#ff9102', 'paddingLeft' : 10}}>
             {isChild === true && "Child View"}
-            {isChild === false && "Gaurdian/Teacher View"}
+            {isChild === false && "Parent/Teacher View"}
             </p>
         </li>
         }

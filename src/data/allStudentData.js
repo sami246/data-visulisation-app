@@ -23,4 +23,20 @@ export const allStudentData = [
     learning_data: require("../assets/interview_assets/sarah_jane/learning_data.json"),
     library_data: require("../assets/interview_assets/sarah_jane/library_data.json"),
   },
+  {
+    first_name: "jay",
+    last_name: "spearman",
+    assessment_scores: require("../assets/interview_assets/jay_spearman/assessment_scores.json"),
+    assessment_submission: require("../assets/interview_assets/jay_spearman/assessment_submission_data.json"),
+    learning_data: require("../assets/interview_assets/jay_spearman/learning_data.json"),
+    library_data: require("../assets/interview_assets/jay_spearman/library_data.json"),
+  },
+  {
+    first_name: "simon",
+    last_name: "kravis",
+    assessment_scores: require("../assets/interview_assets/simon_kravis/assessment_scores.json"),
+    assessment_submission: require("../assets/interview_assets/simon_kravis/assessment_submission_data.json"),
+    learning_data: require("../assets/interview_assets/simon_kravis/learning_data.json"),
+    library_data: require("../assets/interview_assets/simon_kravis/library_data.json"),
+  },
 ];

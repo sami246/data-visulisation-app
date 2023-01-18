@@ -35,10 +35,12 @@ li a:hover {
 }
 
 .container {
-  align-items: center;
+  width: 90%;
+  align-self: center;
   align-content: center;
   justify-content: center;
-  
+  justify-self: center;
+  margin: auto;
 }
 
 * {
@@ -61,4 +63,20 @@ Link {
 h1 {
   color: white;
   font-size: 3rem;
+}
+
+.linkBox {
+  border-radius: 20px;
+  border-width: 2px;
+  padding: 20px;
+  margin: 20px;
+  width: 250px;
+  font-size: 15px;
+  color: white;
+  border-color: white;
+}
+
+.linkBoxContainer {
+  display: flex;
+  justify-content: center;
 }

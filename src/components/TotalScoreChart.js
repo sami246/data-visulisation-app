@@ -3,7 +3,7 @@ import Chart from "chart.js/auto";
 import { DataContext } from '../context/DataContext';
 
 
-function BarChartHorziontal({student, allStudentData}) {
+function TotalScoreChart({student, allStudentData}) {
 
     const {isChild, color, lightColor} = useContext(DataContext);
 
@@ -71,4 +71,4 @@ function BarChartHorziontal({student, allStudentData}) {
   )
 }
 
-export default BarChartHorziontal
+export default TotalScoreChart
